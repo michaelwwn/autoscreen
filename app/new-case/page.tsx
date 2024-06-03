@@ -3,7 +3,7 @@ import { UploadIcon } from "lucide-react"
 
 export default function NewCasePage() {
   return (
-    <div className="w-full max-w-md space-y-4">
+    <div className="w-full max-w-md space-y-4 mx-auto mt-10">
       <div className="space-y-2">
         <h2 className="text-2xl font-bold">Upload Documents</h2>
         <p className="text-gray-500 dark:text-gray-400">
