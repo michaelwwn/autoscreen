@@ -2,6 +2,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 export default function IndexPage() {
   return (
@@ -50,62 +51,69 @@ export default function IndexPage() {
       </div>
       <div className="space-y-2">
         <div className="text-sm font-medium">3 cases(s)</div>
-        <Card className="w-full">
-          <CardHeader className="flex justify-between">
-            <CardTitle>Chan Tei Ming</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-3 gap-4">
-              <div className="space-y-1">
-                <div className="text-xs font-medium text-muted-foreground">
-                  Case Number
+        {/* TODO: Lets dont use br in production */}
+        <br/>
+        <Link href="/documents">
+          <Card className="w-full">
+            <CardHeader className="flex justify-between">
+              <CardTitle>Chan Tei Ming</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-3 gap-4">
+                <div className="space-y-1">
+                  <div className="text-xs font-medium text-muted-foreground">
+                    Case Number
+                  </div>
+                  <div className="font-medium">SGJB00051</div>
                 </div>
-                <div className="font-medium">SGJB00051</div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-xs font-medium text-muted-foreground">
-                  Submitted Documents
+                <div className="space-y-1">
+                  <div className="text-xs font-medium text-muted-foreground">
+                    Submitted Documents
+                  </div>
+                  <div className="font-medium">Passport, Utility Bill</div>
                 </div>
-                <div className="font-medium">Passport, Utility Bill</div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-xs font-medium text-muted-foreground">
-                  Status
-                </div>
-                <Badge>Verification Pending</Badge>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="w-full">
-          <CardHeader className="flex justify-between">
-            <CardTitle>Judit Cletus</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-3 gap-4">
-              <div className="space-y-1">
-                <div className="text-xs font-medium text-muted-foreground">
-                  Case Number
-                </div>
-                <div className="font-medium">HKJB004201</div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-xs font-medium text-muted-foreground">
-                  Submitted Documents
-                </div>
-                <div className="font-medium">
-                  Incorporation Certificate, Bank Statement
+                <div className="space-y-1">
+                  <div className="text-xs font-medium text-muted-foreground">
+                    Status
+                  </div>
+                  <Badge>Verification Pending</Badge>
                 </div>
               </div>
-              <div className="space-y-1">
-                <div className="text-xs font-medium text-muted-foreground">
-                  Status
+            </CardContent>
+          </Card>
+        </Link>
+        <br/>
+        <Link href="/documents">
+          <Card className="w-full">
+            <CardHeader className="flex justify-between">
+              <CardTitle>Judit Cletus</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-3 gap-4">
+                <div className="space-y-1">
+                  <div className="text-xs font-medium text-muted-foreground">
+                    Case Number
+                  </div>
+                  <div className="font-medium">HKJB004201</div>
                 </div>
-                <Badge>Verified</Badge>
+                <div className="space-y-1">
+                  <div className="text-xs font-medium text-muted-foreground">
+                    Submitted Documents
+                  </div>
+                  <div className="font-medium">
+                    Incorporation Certificate, Bank Statement
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <div className="text-xs font-medium text-muted-foreground">
+                    Status
+                  </div>
+                  <Badge>Verified</Badge>
+                </div>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </Link>
       </div>
     </main>
   );
