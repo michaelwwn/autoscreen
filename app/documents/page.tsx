@@ -66,7 +66,7 @@ export default function UploadPage() {
             <p>
               The required documents for KYC typically include a
               government-issued ID, proof of address, and a bank statement.
-              These documents help to confirm the customer's identity and
+              These documents help to confirm the customer identity and
               financial standing.
             </p>
             <p>
