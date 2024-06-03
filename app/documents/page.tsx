@@ -6,7 +6,7 @@ import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
-import { FileIcon } from "@/lib/icons";
+import { FileIcon } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 
 export default function UploadPage() {

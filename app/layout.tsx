@@ -12,7 +12,7 @@ import {
   PlusIcon,
   SettingsIcon,
   UsersIcon,
-} from "@/lib/icons";
+} from "lucide-react";
 
 const fontSans = FontSans({
   subsets: ["latin"],
