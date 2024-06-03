@@ -3,6 +3,17 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import {
+  FileIcon,
+  HomeIcon,
+  PlusIcon,
+  SettingsIcon,
+  UsersIcon,
+} from "@/lib/icons";
+
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -26,7 +37,86 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        {children}
+        <div className="grid min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]">
+          <div className="hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40">
+            <div className="flex h-full max-h-screen flex-col gap-2">
+              <div className="flex h-[60px] items-center border-b px-6">
+                <Link
+                  href="#"
+                  className="flex items-center gap-2 font-semibold"
+                  prefetch={false}
+                >
+                  <Image
+                    src="/logo-mini.png"
+                    alt="Logo"
+                    width={24}
+                    height={24}
+                    priority
+                  />
+                  <span className="ml-2">Autoscreen</span>
+                </Link>
+              </div>
+              <div className="flex-1 overflow-auto py-2">
+                <nav className="grid items-start px-4 text-sm font-medium">
+                  <Link
+                    href="#"
+                    className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                    prefetch={false}
+                  >
+                    <HomeIcon className="h-4 w-4" />
+                    Dashboard
+                  </Link>
+                  <Link
+                    href="#"
+                    className="flex items-center gap-3 rounded-lg bg-gray-100 px-3 py-2 text-gray-900  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50"
+                    prefetch={false}
+                  >
+                    <FileIcon className="h-4 w-4" />
+                    New Case
+                  </Link>
+                  <Link
+                    href="#"
+                    className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                    prefetch={false}
+                  >
+                    <UsersIcon className="h-4 w-4" />
+                    Cases
+                  </Link>
+                  <Link
+                    href="#"
+                    className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                    prefetch={false}
+                  >
+                    <SettingsIcon className="h-4 w-4" />
+                    Settings
+                  </Link>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <header className="flex h-14 lg:h-[60px] items-center gap-4 border-b bg-gray-100/40 px-6 dark:bg-gray-800/40">
+              <Link href="#" className="lg:hidden" prefetch={false}>
+                <Image
+                  src="/logo-mini.png"
+                  alt="Logo"
+                  width={24}
+                  height={24}
+                  priority
+                />
+                <span className="sr-only">Home</span>
+              </Link>
+              <div className="flex-1">
+                <h1 className="font-semibold text-lg">KYC Cases</h1>
+              </div>
+              <Button size="sm" className="ml-auto">
+                <PlusIcon className="h-4 w-4 mr-2" />
+                New Case
+              </Button>
+            </header>
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );
