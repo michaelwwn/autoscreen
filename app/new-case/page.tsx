@@ -1,5 +1,7 @@
-import { Button } from "@/components/ui/button"
-import { UploadIcon } from "lucide-react"
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { UploadIcon } from "lucide-react";
 
 export default function NewCasePage() {
   return (
@@ -14,14 +16,35 @@ export default function NewCasePage() {
         <div className="pointer-events-none z-10 flex flex-col items-center justify-center space-y-2 text-center text-gray-500 transition-colors group-hover:text-gray-600 dark:text-gray-400 dark:group-hover:text-gray-300">
           <UploadIcon className="h-8 w-8" />
           <p className="text-sm font-medium">
-            Drag and drop files here or <span className="text-blue-500 underline">click to upload</span>
+            Drag and drop files here or{" "}
+            <span className="text-blue-500 underline">click to upload</span>
           </p>
         </div>
-        <input type="file" multiple className="absolute inset-0 z-20 h-full w-full cursor-pointer opacity-0" />
+        <input
+          type="file"
+          multiple
+          className="absolute inset-0 z-20 h-full w-full cursor-pointer opacity-0"
+        />
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="description">Write Up</Label>
+        <Textarea
+          id="description"
+          placeholder="Enter a description for your files"
+          className="min-h-[100px]"
+        />
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="city">Crypto Addresses</Label>
+        <Textarea
+          id="description"
+          placeholder="Enter a description for your files"
+          className="min-h-[100px]"
+        />
       </div>
       <Button type="submit" className="w-full">
         Upload Files
       </Button>
     </div>
-  )
+  );
 }

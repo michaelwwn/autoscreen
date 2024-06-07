@@ -3,21 +3,47 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-import Link from "next/link";
+import { DM_Sans } from 'next/font/google'
+import { Archivo } from 'next/font/google'
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import {
   FileIcon,
   HomeIcon,
+  Package2Icon,
   PlusIcon,
+  SearchIcon,
   SettingsIcon,
   UsersIcon,
+  WalletIcon,
 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import Link from "next/link";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
+import Sidebar from "@/components/dashboard/sidebar";
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
+
+const dm_sans = DM_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-dm_sans',
+})
+const archivo = Archivo({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-archivo',
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -34,7 +60,9 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
+          fontSans.variable,
+          dm_sans.variable,
+          archivo.variable
         )}
       >
         <div className="grid min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]">
@@ -56,65 +84,47 @@ export default function RootLayout({
                   <span className="ml-2">Autoscreen</span>
                 </Link>
               </div>
-              <div className="flex-1 overflow-auto py-2">
-                <nav className="grid items-start px-4 text-sm font-medium">
-                  <Link
-                    href="#"
-                    className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                    prefetch={false}
-                  >
-                    <HomeIcon className="h-4 w-4" />
-                    Dashboard
-                  </Link>
-                  <Link
-                    href="/new-case"
-                    className="flex items-center gap-3 rounded-lg bg-gray-100 px-3 py-2 text-gray-900  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50"
-                    prefetch={false}
-                  >
-                    <FileIcon className="h-4 w-4" />
-                    New Case
-                  </Link>
-                  <Link
-                    href="/"
-                    className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                    prefetch={false}
-                  >
-                    <UsersIcon className="h-4 w-4" />
-                    Cases
-                  </Link>
-                  <Link
-                    href="#"
-                    className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                    prefetch={false}
-                  >
-                    <SettingsIcon className="h-4 w-4" />
-                    Settings
-                  </Link>
-                </nav>
-              </div>
+              <Sidebar/>
             </div>
           </div>
           <div className="flex flex-col">
             <header className="flex h-14 lg:h-[60px] items-center gap-4 border-b bg-gray-100/40 px-6 dark:bg-gray-800/40">
               <Link href="#" className="lg:hidden" prefetch={false}>
-                <Image
-                  src="/logo-mini.png"
-                  alt="Logo"
-                  width={24}
-                  height={24}
-                  priority
-                />
+                <Package2Icon className="h-6 w-6" />
                 <span className="sr-only">Home</span>
               </Link>
-              <div className="flex-1">
-                <h1 className="font-semibold text-lg">KYC Cases</h1>
+              <div className="w-full flex-1">
+                <form>
+                  <div className="relative">
+                    <SearchIcon className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500 dark:text-gray-400" />
+                    <Input
+                      type="search"
+                      placeholder="Search"
+                      className="w-full bg-white shadow-none appearance-none pl-8 md:w-2/3 lg:w-1/3 dark:bg-gray-950"
+                    />
+                  </div>
+                </form>
               </div>
-              <Link href="/new-case" prefetch={false}>
-                <Button size="sm" className="ml-auto">
-                  <PlusIcon className="h-4 w-4 mr-2" />
-                  New Case
-                </Button>
-              </Link>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full border border-gray-200 w-8 h-8 dark:border-gray-800"
+                  >
+                    {/* <img src="/placeholder.svg" width="32" height="32" className="rounded-full" alt="Avatar" /> */}
+                    <span className="sr-only">Toggle user menu</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>Settings</DropdownMenuItem>
+                  <DropdownMenuItem>Support</DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>Logout</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </header>
             {children}
           </div>
