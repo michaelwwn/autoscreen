@@ -65,13 +65,13 @@ export default function CustomerPage() {
           </Link>
           <h1 className="font-semibold text-lg md:text-xl">Vitali Huanglong</h1>
         </div>
-        <Button
+        {/* <Button
           type="button"
           className="px-2 py-1 bg-gray-800 text-white rounded-lg flex items-center space-x-2 text-sm"
         >
           <DownloadIcon className="w-4 h-4" />
           <span>Download Overview</span>
-        </Button>
+        </Button> */}
       </div>
       <Card>
         <CardHeader>
@@ -251,11 +251,11 @@ export default function CustomerPage() {
             </div>
             <div className="grid items-center grid-cols-4 gap-4">
               <Label htmlFor="chain" className="text-right">
-                Chain
+                Network
               </Label>
               <Select value={selectedChain} onValueChange={setSelectedChain} >
                 <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Select chain" />
+                  <SelectValue placeholder="Select network" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="ethereum">Bitcoin</SelectItem>

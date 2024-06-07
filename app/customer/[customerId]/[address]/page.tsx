@@ -31,6 +31,9 @@ import {
   BreadcrumbSeparator,
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
+import BlockchainTree from "@/components/graph/blockchain-tree";
+import DocumentListCard from "@/components/dashboard/document-list-card";
+import CounterpartyListCard from "@/components/dashboard/counterparty-list-card";
 
 export default function AddressPage() {
   const [activeTab, setActiveTab] = useState("profile");
@@ -66,6 +69,137 @@ export default function AddressPage() {
       valueUSD: 456.78,
     },
   ];
+  const treeData = {
+    name: 'Root', // Imaginary root node for visualization
+    children: [
+      {
+        name: 'Normal Transfer (Known)',
+        attributes: { color: 'grey' },
+        children: [
+          {
+            name: 'Tx 1A',
+            attributes: { color: 'grey' },
+            children: [
+              {
+                name: 'Tx 2A',
+                attributes: { color: 'grey' },
+                children: [
+                  {
+                    name: 'Tx 3A',
+                    attributes: { color: 'grey' }
+                  },
+                  {
+                    name: 'Tx 3B',
+                    attributes: { color: 'grey' },
+                    children: [
+                      {
+                        name: 'Tx 4A',
+                        attributes: { color: 'grey' }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                name: 'Tx 2B',
+                attributes: { color: 'grey' },
+                children: [
+                  {
+                    name: 'Tx 4B',
+                    attributes: { color: 'grey' }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        name: 'Scam Path',
+        attributes: { color: 'red' },
+        children: [
+          {
+            name: 'Tx 1B',
+            attributes: { color: 'red' },
+            children: [
+              {
+                name: 'Tx 2C',
+                attributes: { color: 'red' },
+                children: [
+                  {
+                    name: 'Tx 3C',
+                    attributes: { color: 'red' },
+                    children: [
+                      {
+                        name: 'Tx 5A',
+                        attributes: { color: 'red' }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        name: 'Normal Transfer (Unknown)',
+        attributes: { color: 'orange' },
+        children: [
+          {
+            name: 'Tx 1C',
+            attributes: { color: 'orange' },
+            children: [
+              {
+                name: 'Tx 2D',
+                attributes: { color: 'orange' },
+                children: [
+                  {
+                    name: 'Tx 3D',
+                    attributes: { color: 'orange' }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        name: 'Normal Transfer (Known)',
+        attributes: { color: 'grey' },
+        children: [
+          {
+            name: 'Tx 1D',
+            attributes: { color: 'grey' },
+            children: [
+              {
+                name: 'Tx 2E',
+                attributes: { color: 'grey' },
+                children: [
+                  {
+                    name: 'Tx 3E',
+                    attributes: { color: 'grey' }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            name: 'Tx 2F', // Cross-reference node
+            attributes: { color: 'grey' },
+            children: [
+              {
+                name: 'Tx 3A', // Connecting back to earlier Tx 3A for more complexity
+                attributes: { color: 'grey' }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  };
+  
+  
   return (
     <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
       <div className="flex items-center gap-4">
@@ -141,7 +275,7 @@ export default function AddressPage() {
                     />
                   </div>
                   <div className="space-y-1">
-                    <Label htmlFor="chain">Chain</Label>
+                    <Label htmlFor="chain">Network</Label>
                     <Input
                       id="chain"
                       defaultValue="Ethereum (ERC20) network"
@@ -153,10 +287,6 @@ export default function AddressPage() {
                   <div className="space-y-1">
                     <Label htmlFor="city">Estimated Value</Label>
                     <Input id="city" defaultValue="$599,100,200" disabled />
-                  </div>
-                  <div className="space-y-1">
-                    <Label htmlFor="type">Type</Label>
-                    <Input id="type" defaultValue="Ethereum Miner" disabled />
                   </div>
                 </div>
                 <div className="gap-4">
@@ -231,9 +361,11 @@ export default function AddressPage() {
           <div className="grid gap-6">
             <Card>
               <CardHeader>
-                <CardTitle>Transaction Volume</CardTitle>
+                <CardTitle>Transaction Graph</CardTitle>
               </CardHeader>
-              <CardContent></CardContent>
+              <CardContent>
+                <BlockchainTree data={treeData} />
+              </CardContent>
             </Card>
           </div>
         </TabsContent>
@@ -272,36 +404,18 @@ export default function AddressPage() {
             </Card>
           </div>
         </TabsContent>
-        <TabsContent value="risk">
+        <TabsContent value="document">
           <div className="grid gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Risk Assessment</CardTitle>
-              </CardHeader>
-              <CardContent className="grid gap-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-1">
-                    <Label htmlFor="risk-score">Risk Score</Label>
-                    <Input id="risk-score" defaultValue="75" disabled />
-                  </div>
-                  <div className="space-y-1">
-                    <Label htmlFor="risk-level">Risk Level</Label>
-                    <Input id="risk-level" defaultValue="High" disabled />
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <Label htmlFor="risk-comments">Comments</Label>
-                  <Textarea
-                    id="risk-comments"
-                    defaultValue="The customer has a history of high-risk transactions and is considered a high-risk customer."
-                    disabled
-                  />
-                </div>
-              </CardContent>
-            </Card>
+            <DocumentListCard/>
+          </div>
+        </TabsContent>
+        <TabsContent value="counterparty">
+          <div className="grid gap-6">
+            <CounterpartyListCard/>
           </div>
         </TabsContent>
       </Tabs>
+
     </main>
   );
 }
