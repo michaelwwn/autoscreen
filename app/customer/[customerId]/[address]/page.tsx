@@ -31,9 +31,9 @@ import {
   BreadcrumbSeparator,
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
-import BlockchainTree from "@/components/graph/blockchain-tree";
-import DocumentListCard from "@/components/dashboard/document-list-card";
-import CounterpartyListCard from "@/components/dashboard/counterparty-list-card";
+import DocumentListCard from "@/components/address/card-document";
+import CounterpartyListCard from "@/components/address/card-counterparty";
+import BlockchainTree from "@/components/address/card-tree";
 
 export default function AddressPage() {
   const [activeTab, setActiveTab] = useState("profile");

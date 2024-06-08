@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -162,8 +163,7 @@ export default function IndexPage() {
       <Dialog open={showAddressModal} onOpenChange={handleCloseModal}>
         <DialogContent className="sm:max-w-[525px]">
           <DialogHeader>
-            <DialogTitle>Add New Address</DialogTitle>
-            <DialogDescription>Perform Wallet Scanning</DialogDescription>
+            <DialogTitle>Add New Customer</DialogTitle>
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <div className="grid items-center grid-cols-4 gap-4">
@@ -186,6 +186,16 @@ export default function IndexPage() {
                 value={selectedChain}
                 onChange={(e) => setSelectedChain(e.target.value)}
                 className="col-span-3"
+              />
+            </div>
+            <div className="grid items-center grid-cols-4 gap-4">
+              <Label className="text-right">
+                 User Story
+              </Label>
+              <Textarea
+                row={4}
+                id="user_story"
+                className="col-span-3 min-h-[100px]"
               />
             </div>
           </div>

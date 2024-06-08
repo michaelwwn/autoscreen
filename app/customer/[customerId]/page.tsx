@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -263,6 +262,16 @@ export default function CustomerPage() {
                   <SelectItem value="avalanche">Solana</SelectItem>
                 </SelectContent>
               </Select>
+            </div>
+            <div className="grid items-center grid-cols-4 gap-4">
+              <Label className="text-right">
+                 User Story
+              </Label>
+              <Textarea
+                row={4}
+                id="user_story"
+                className="col-span-3 min-h-[100px]"
+              />
             </div>
           </div>
           <DialogFooter>
