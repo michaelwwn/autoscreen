@@ -32,26 +32,39 @@ const BlockchainTree: React.FC<BlockchainTreeProps> = ({ data }) => {
     }
   }, [treeContainerRef.current]);
 
-  // Custom node rendering function
-  const renderNode = ({
-    nodeDatum,
-    toggleNode,
-  }: {
-    nodeDatum: TreeNodeDatum;
-    toggleNode: () => void;
-  }) => (
-    <g>
-      <circle
-        r={10}
-        fill={(nodeDatum.attributes?.color || '#999') as string}
-        onClick={toggleNode}
-      />
-      <text fill="black" strokeWidth="0" x={20} y={5}>
-        {nodeDatum.name}
-      </text>
-    </g>
-  );
+ // Custom node rendering function
+ const renderNode = ({
+  nodeDatum,
+  toggleNode,
+}: {
+  nodeDatum: TreeNodeDatum;
+  toggleNode: () => void;
+}) => (
+  <g>
+    <circle
+      r={20}
+      fill={(nodeDatum.attributes?.color || '#999') as string}
+      onClick={toggleNode}
+      stroke="#000"
+      strokeWidth={3}
+    />
+    <text fill="black" strokeWidth="0" x={40} y={-5} fontWeight="bold">
+      {nodeDatum.name}
+    </text>
 
+    {nodeDatum.attributes?.group && (
+      <text fill="grey" strokeWidth="0" x={40} y={20}>
+        {`group: ${nodeDatum.attributes.group}`}
+      </text>
+    )}
+
+    {nodeDatum.attributes?.BTC && (
+      <text fill="grey" strokeWidth="0" x={40} y={40}>
+        {`BTC: ${nodeDatum.attributes.BTC}`}
+      </text>
+    )}
+  </g>
+);
   return (
     <div style={containerStyles} ref={treeContainerRef} id="treeWrapper">
       <Tree

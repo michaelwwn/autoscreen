@@ -74,27 +74,27 @@ export default function AddressPage() {
     children: [
       {
         name: 'Normal Transfer (Known)',
-        attributes: { color: 'grey' },
+        attributes: { color: 'grey', group: 1 },
         children: [
           {
             name: 'Tx 1A',
-            attributes: { color: 'grey' },
+            attributes: { color: 'grey', BTC: '1.5 BTC', group: 1 },
             children: [
               {
                 name: 'Tx 2A',
-                attributes: { color: 'grey' },
+                attributes: { color: 'grey', group: 1 },
                 children: [
                   {
                     name: 'Tx 3A',
-                    attributes: { color: 'grey' }
+                    attributes: { color: 'grey', BTC: '1.2 BTC', group: 1 }
                   },
                   {
                     name: 'Tx 3B',
-                    attributes: { color: 'grey' },
+                    attributes: { color: 'grey', BTC: '0.3 BTC', group: 1 },
                     children: [
                       {
                         name: 'Tx 4A',
-                        attributes: { color: 'grey' }
+                        attributes: { color: 'grey', BTC: '0.3 BTC', group: 1 }
                       }
                     ]
                   }
@@ -102,11 +102,11 @@ export default function AddressPage() {
               },
               {
                 name: 'Tx 2B',
-                attributes: { color: 'grey' },
+                attributes: { color: 'grey', group: 1 },
                 children: [
                   {
                     name: 'Tx 4B',
-                    attributes: { color: 'grey' }
+                    attributes: { color: 'grey', BTC: '0.8 BTC', group: 1 }
                   }
                 ]
               }
@@ -116,23 +116,23 @@ export default function AddressPage() {
       },
       {
         name: 'Scam Path',
-        attributes: { color: 'red' },
+        attributes: { color: 'red', group: 2 },
         children: [
           {
             name: 'Tx 1B',
-            attributes: { color: 'red' },
+            attributes: { color: 'red', BTC: '2 BTC', group: 2 },
             children: [
               {
                 name: 'Tx 2C',
-                attributes: { color: 'red' },
+                attributes: { color: 'red', BTC: '2 BTC', group: 2 },
                 children: [
                   {
                     name: 'Tx 3C',
-                    attributes: { color: 'red' },
+                    attributes: { color: 'red', group: 2 },
                     children: [
                       {
                         name: 'Tx 5A',
-                        attributes: { color: 'red' }
+                        attributes: { color: 'red', BTC: '2 BTC', group: 2 }
                       }
                     ]
                   }
@@ -144,19 +144,19 @@ export default function AddressPage() {
       },
       {
         name: 'Normal Transfer (Unknown)',
-        attributes: { color: 'orange' },
+        attributes: { color: 'orange', group: 3 },
         children: [
           {
             name: 'Tx 1C',
-            attributes: { color: 'orange' },
+            attributes: { color: 'orange', BTC: '0.5 BTC', group: 3 },
             children: [
               {
                 name: 'Tx 2D',
-                attributes: { color: 'orange' },
+                attributes: { color: 'orange', group: 3 },
                 children: [
                   {
                     name: 'Tx 3D',
-                    attributes: { color: 'orange' }
+                    attributes: { color: 'orange', BTC: '0.5 BTC', group: 3 }
                   }
                 ]
               }
@@ -166,19 +166,19 @@ export default function AddressPage() {
       },
       {
         name: 'Normal Transfer (Known)',
-        attributes: { color: 'grey' },
+        attributes: { color: 'grey', group: 4 },
         children: [
           {
             name: 'Tx 1D',
-            attributes: { color: 'grey' },
+            attributes: { color: 'grey', BTC: '3 BTC', group: 4 },
             children: [
               {
                 name: 'Tx 2E',
-                attributes: { color: 'grey' },
+                attributes: { color: 'grey', group: 4 },
                 children: [
                   {
                     name: 'Tx 3E',
-                    attributes: { color: 'grey' }
+                    attributes: { color: 'grey', BTC: '3 BTC', group: 4 }
                   }
                 ]
               }
@@ -186,11 +186,11 @@ export default function AddressPage() {
           },
           {
             name: 'Tx 2F', // Cross-reference node
-            attributes: { color: 'grey' },
+            attributes: { color: 'grey', group: 4 },
             children: [
               {
                 name: 'Tx 3A', // Connecting back to earlier Tx 3A for more complexity
-                attributes: { color: 'grey' }
+                attributes: { color: 'grey', group: 4 }
               }
             ]
           }
