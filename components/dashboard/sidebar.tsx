@@ -27,7 +27,7 @@ export default function Sidebar() {
             prefetch={false}
           >
             <WalletIcon className="h-4 w-4" />
-            Addresses
+            Transactions
           </Link>
           <Link
             href="/"

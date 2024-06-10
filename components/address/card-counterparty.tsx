@@ -14,7 +14,7 @@ const CounterpartyListCard = () => {
       <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Account Address</TableHead>
+                <TableHead>Cluster</TableHead>
                 <TableHead>In-Flow</TableHead>
                 <TableHead>Out-Flow</TableHead>
                 <TableHead>Labels</TableHead>
@@ -25,8 +25,8 @@ const CounterpartyListCard = () => {
             <TableBody>
               <TableRow>
                 <TableCell>
-                  <Link href="#" className="font-medium text-blue-600 hover:underline" prefetch={false}>
-                    1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2
+                  <Link href="#" className="font-medium hover:underline" prefetch={false}>
+                    Binance
                   </Link>
                 </TableCell>
                 <TableCell>0.5 BTC</TableCell>
@@ -50,8 +50,8 @@ const CounterpartyListCard = () => {
               </TableRow>
               <TableRow>
                 <TableCell>
-                  <Link href="#" className="font-medium text-blue-600 hover:underline" prefetch={false}>
-                    3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy
+                  <Link href="#" className="font-medium hover:underline" prefetch={false}>
+                    Gambling Platform
                   </Link>
                 </TableCell>
                 <TableCell>1.2 BTC</TableCell>
@@ -75,8 +75,8 @@ const CounterpartyListCard = () => {
               </TableRow>
               <TableRow>
                 <TableCell>
-                  <Link href="#" className="font-medium text-blue-600 hover:underline" prefetch={false}>
-                    bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq
+                  <Link href="#" className="font-medium hover:underline" prefetch={false}>
+                    XYZ Donation
                   </Link>
                 </TableCell>
                 <TableCell>0.3 BTC</TableCell>
