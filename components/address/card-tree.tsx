@@ -58,9 +58,9 @@ const BlockchainTree: React.FC<BlockchainTreeProps> = ({ data }) => {
       </text>
     )}
 
-    {nodeDatum.attributes?.BTC && (
+    {nodeDatum.attributes?.ETH && (
       <text fill="grey" strokeWidth="0" x={40} y={40}>
-        {`BTC: ${nodeDatum.attributes.BTC}`}
+        {`ETH: ${nodeDatum.attributes.ETH}`}
       </text>
     )}
   </g>

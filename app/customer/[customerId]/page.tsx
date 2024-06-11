@@ -48,7 +48,7 @@ export default function CustomerPage() {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbLink href="/customer/1000">
-                Vitali Huanglong
+                Jasper Quinn
               </BreadcrumbLink>
             </BreadcrumbItem>
           </BreadcrumbList>
@@ -62,7 +62,7 @@ export default function CustomerPage() {
             <span className="sr-only">Back</span>
           </Button>
           </Link>
-          <h1 className="font-semibold text-lg md:text-xl">Vitali Huanglong</h1>
+          <h1 className="font-semibold text-lg md:text-xl">Jasper Quinn</h1>
         </div>
         {/* <Button
           type="button"
@@ -80,7 +80,7 @@ export default function CustomerPage() {
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1">
               <Label htmlFor="name">Name</Label>
-              <Input id="name" defaultValue="John Doe" disabled />
+              <Input id="name" defaultValue="Jasper Quinn" disabled />
             </div>
             <div className="space-y-1">
               <Label htmlFor="email">Email</Label>
@@ -121,7 +121,7 @@ export default function CustomerPage() {
               <Textarea
                 rows={4}
                 id="story"
-                defaultValue="Michael Wong has informed us that the initial funding of his crypto address came from a reputable exchange where he converted part of his fiat savings into Bitcoin and Ethereum. He uses his crypto address primarily for trading and holding long-term investments. However, he also participates in several DeFi protocols for yield farming and occasionally sends funds to family members."
+                defaultValue="Jasper Quinn has informed us that the initial funding of his crypto address came from a reputable exchange where he converted part of his fiat savings into Bitcoin and Ethereum. He uses his crypto address primarily for trading and holding long-term investments. However, he also participates in several DeFi protocols for yield farming and occasionally sends funds to family members."
                 disabled
               />
             </div>
@@ -263,7 +263,7 @@ export default function CustomerPage() {
                 </SelectContent>
               </Select>
             </div>
-            <div className="grid items-center grid-cols-4 gap-4">
+            {/* <div className="grid items-center grid-cols-4 gap-4">
               <Label className="text-right">
                  User Story
               </Label>
@@ -272,7 +272,7 @@ export default function CustomerPage() {
                 id="user_story"
                 className="col-span-3 min-h-[100px]"
               />
-            </div>
+            </div> */}
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={handleCloseModal}>

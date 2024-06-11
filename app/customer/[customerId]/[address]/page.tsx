@@ -35,6 +35,8 @@ import DocumentListCard from "@/components/address/card-document";
 import CounterpartyListCard from "@/components/address/card-counterparty";
 import BlockchainTree from "@/components/address/card-tree";
 import { Badge } from "@/components/ui/badge";
+import ModalReport from "@/components/address/modal-report";
+import TransactionTable from "@/components/address/card-transactions";
 
 export default function AddressPage() {
   const [activeTab, setActiveTab] = useState("profile");
@@ -79,7 +81,7 @@ export default function AddressPage() {
         children: [
           {
             name: "Tx 1A",
-            attributes: { color: "grey", BTC: "1.5 BTC", group: 1 },
+            attributes: { color: "grey", ETH: "1.5 ETH", group: 1 },
             children: [
               {
                 name: "Tx 2A",
@@ -87,15 +89,15 @@ export default function AddressPage() {
                 children: [
                   {
                     name: "Tx 3A",
-                    attributes: { color: "grey", BTC: "1.2 BTC", group: 1 },
+                    attributes: { color: "grey", ETH: "1.2 ETH", group: 1 },
                   },
                   {
                     name: "Tx 3B",
-                    attributes: { color: "grey", BTC: "0.3 BTC", group: 1 },
+                    attributes: { color: "grey", ETH: "0.3 ETH", group: 1 },
                     children: [
                       {
                         name: "Tx 4A",
-                        attributes: { color: "grey", BTC: "0.3 BTC", group: 1 },
+                        attributes: { color: "grey", ETH: "0.3 ETH", group: 1 },
                       },
                     ],
                   },
@@ -107,7 +109,7 @@ export default function AddressPage() {
                 children: [
                   {
                     name: "Tx 4B",
-                    attributes: { color: "grey", BTC: "0.8 BTC", group: 1 },
+                    attributes: { color: "grey", ETH: "0.8 ETH", group: 1 },
                   },
                 ],
               },
@@ -121,11 +123,11 @@ export default function AddressPage() {
         children: [
           {
             name: "Tx 1B",
-            attributes: { color: "red", BTC: "2 BTC", group: 2 },
+            attributes: { color: "red", ETH: "2 ETH", group: 2 },
             children: [
               {
                 name: "Tx 2C",
-                attributes: { color: "red", BTC: "2 BTC", group: 2 },
+                attributes: { color: "red", ETH: "2 ETH", group: 2 },
                 children: [
                   {
                     name: "Tx 3C",
@@ -133,7 +135,7 @@ export default function AddressPage() {
                     children: [
                       {
                         name: "Tx 5A",
-                        attributes: { color: "red", BTC: "2 BTC", group: 2 },
+                        attributes: { color: "red", ETH: "2 ETH", group: 2 },
                       },
                     ],
                   },
@@ -149,7 +151,7 @@ export default function AddressPage() {
         children: [
           {
             name: "Tx 1C",
-            attributes: { color: "orange", BTC: "0.5 BTC", group: 3 },
+            attributes: { color: "orange", ETH: "0.5 ETH", group: 3 },
             children: [
               {
                 name: "Tx 2D",
@@ -157,7 +159,7 @@ export default function AddressPage() {
                 children: [
                   {
                     name: "Tx 3D",
-                    attributes: { color: "orange", BTC: "0.5 BTC", group: 3 },
+                    attributes: { color: "orange", ETH: "0.5 ETH", group: 3 },
                   },
                 ],
               },
@@ -171,7 +173,7 @@ export default function AddressPage() {
         children: [
           {
             name: "Tx 1D",
-            attributes: { color: "grey", BTC: "3 BTC", group: 4 },
+            attributes: { color: "grey", ETH: "3 ETH", group: 4 },
             children: [
               {
                 name: "Tx 2E",
@@ -179,7 +181,7 @@ export default function AddressPage() {
                 children: [
                   {
                     name: "Tx 3E",
-                    attributes: { color: "grey", BTC: "3 BTC", group: 4 },
+                    attributes: { color: "grey", ETH: "3 ETH", group: 4 },
                   },
                 ],
               },
@@ -199,7 +201,11 @@ export default function AddressPage() {
       },
     ],
   };
+  const [showReportModal, setShowReportModal] = useState<boolean>(false);
 
+  const handleCloseModal = (isOpen: boolean) => {
+    setShowReportModal(isOpen);
+  };
   return (
     <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
       <div className="flex items-center gap-4">
@@ -211,13 +217,13 @@ export default function AddressPage() {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbLink href="/customer/1000">
-                Vitali Huanglong
+                Jasper Quinn
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbPage>
-                0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+                0xdCCF22EFa38f4E58beF3e9fF3DC1Ff5BaaAdaC94
               </BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
@@ -232,11 +238,12 @@ export default function AddressPage() {
             </Button>
           </Link>
           <h1 className="font-semibold text-lg md:text-xl">
-            Vitali Huanglong&apos;s Address{" "}
+            Jasper Quinn&apos;s Address{" "}
             <span className="text-gray-300">#1</span>
           </h1>
         </div>
         <Button
+          onClick={() => setShowReportModal(true)}
           type="button"
           className="px-2 py-1 bg-gray-800 text-white rounded-lg flex items-center space-x-2 text-sm"
         >
@@ -270,7 +277,7 @@ export default function AddressPage() {
                     <Label htmlFor="address">Address</Label>
                     <Input
                       id="address"
-                      defaultValue="0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+                      defaultValue="0xdCCF22EFa38f4E58beF3e9fF3DC1Ff5BaaAdaC94"
                       disabled
                     />
                   </div>
@@ -289,7 +296,7 @@ export default function AddressPage() {
                     <Input id="city" defaultValue="$599,100,200" disabled />
                   </div>
                 </div>
-                <div className="gap-4">
+                {/* <div className="gap-4">
                   <div className="space-y-1">
                     <Label htmlFor="story">User Story</Label>
                     <Textarea
@@ -299,102 +306,14 @@ export default function AddressPage() {
                       disabled
                     />
                   </div>
-                </div>
+                </div> */}
               </CardContent>
             </Card>
           </div>
         </TabsContent>
         <TabsContent value="transaction">
           <div className="grid gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Blockchain Transaction History</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Transaction Hash</TableHead>
-                      <TableHead>Date</TableHead>
-                      <TableHead>Amount (ETH)</TableHead>
-                      <TableHead>Cluster</TableHead>
-                      <TableHead>Direction</TableHead>
-                      <TableHead>Status</TableHead>
-                      <TableHead>From</TableHead>
-                      <TableHead>To</TableHead>
-                      <TableHead>Risk Score</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell>0x1234...abcd</TableCell>
-                      <TableCell>2023-04-15</TableCell>
-                      <TableCell>0.1</TableCell>
-                      <TableCell>Binance</TableCell>
-                      <TableCell>In</TableCell>
-                      <TableCell>Completed</TableCell>
-                      <TableCell>0x5678...efgh</TableCell>
-                      <TableCell>0x9abc...ijkl</TableCell>
-                      <TableCell>
-                        <Badge variant="secondary">Low</Badge>
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>0x2345...bcde</TableCell>
-                      <TableCell>2023-04-10</TableCell>
-                      <TableCell>0.05</TableCell>
-                      <TableCell>Donation</TableCell>
-                      <TableCell>Out</TableCell>
-                      <TableCell>Completed</TableCell>
-                      <TableCell>0xabcd...ijkl</TableCell>
-                      <TableCell>0xefgh...mnop</TableCell>
-                      <TableCell>
-                        <Badge variant="secondary">Low</Badge>
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>0x3456...cdef</TableCell>
-                      <TableCell>2023-04-05</TableCell>
-                      <TableCell>0.02</TableCell>
-                      <TableCell>Donation</TableCell>
-                      <TableCell>In</TableCell>
-                      <TableCell>Completed</TableCell>
-                      <TableCell>0xijkl...mnop</TableCell>
-                      <TableCell>0xqrst...uvwx</TableCell>
-                      <TableCell>
-                        <Badge variant="secondary">Low</Badge>
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>0x4567...defg</TableCell>
-                      <TableCell>2023-03-30</TableCell>
-                      <TableCell>0.4</TableCell>
-                      <TableCell>Binance</TableCell>
-                      <TableCell>Out</TableCell>
-                      <TableCell>Completed</TableCell>
-                      <TableCell>0xmnop...qrst</TableCell>
-                      <TableCell>0xuvwx...yzab</TableCell>
-                      <TableCell>
-                        <Badge variant="secondary">Low</Badge>
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>0x5678...efgh</TableCell>
-                      <TableCell>2023-03-25</TableCell>
-                      <TableCell>0.01</TableCell>
-                      <TableCell>Donation</TableCell>
-                      <TableCell>In</TableCell>
-                      <TableCell>Completed</TableCell>
-                      <TableCell>0xqrst...uvwx</TableCell>
-                      <TableCell>0xijkl...mnop</TableCell>
-                      <TableCell>
-                        <Badge variant="secondary">Low</Badge>
-                      </TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </CardContent>
-            </Card>
+            <TransactionTable/>
           </div>
         </TabsContent>
 
@@ -456,6 +375,7 @@ export default function AddressPage() {
           </div>
         </TabsContent>
       </Tabs>
+      <ModalReport showAddressModal={showReportModal} handleCloseModal={handleCloseModal} />
     </main>
   );
 }

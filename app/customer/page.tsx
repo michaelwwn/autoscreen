@@ -75,7 +75,7 @@ export default function IndexPage() {
         <div className="text-sm font-medium">2 cases(s)</div>
         <Card>
           <CardHeader className="flex justify-between">
-            <CardTitle>Vitali Huanglong</CardTitle>
+            <CardTitle>Jasper Quinn</CardTitle>
           </CardHeader>
           <CardContent className="flex items-center gap-4">
             <div className="flex-1 grid gap-1">
@@ -118,7 +118,7 @@ export default function IndexPage() {
         </Card>
         <Card>
           <CardHeader className="flex justify-between">
-            <CardTitle>Wong Ting Man</CardTitle>
+            <CardTitle>Hiroshi Tanaka</CardTitle>
           </CardHeader>
           <CardContent className="flex items-center gap-4">
             <div className="flex-1 grid gap-1">
@@ -193,7 +193,6 @@ export default function IndexPage() {
                  User Story
               </Label>
               <Textarea
-                row={4}
                 id="user_story"
                 className="col-span-3 min-h-[100px]"
               />

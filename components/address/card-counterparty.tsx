@@ -26,11 +26,11 @@ const CounterpartyListCard = () => {
               <TableRow>
                 <TableCell>
                   <Link href="#" className="font-medium hover:underline" prefetch={false}>
-                    Binance
+                  Exchange (Binance)
                   </Link>
                 </TableCell>
-                <TableCell>0.5 BTC</TableCell>
-                <TableCell>0.2 BTC</TableCell>
+                <TableCell>20.5 ETH</TableCell>
+                <TableCell>21.2 ETH</TableCell>
                 <TableCell>
                   <div className="flex gap-2">
                     <Badge>Exchange</Badge>
@@ -51,11 +51,11 @@ const CounterpartyListCard = () => {
               <TableRow>
                 <TableCell>
                   <Link href="#" className="font-medium hover:underline" prefetch={false}>
-                    Gambling Platform
+                    XYZ Gambling
                   </Link>
                 </TableCell>
-                <TableCell>1.2 BTC</TableCell>
-                <TableCell>0.8 BTC</TableCell>
+                <TableCell>1201.2 ETH</TableCell>
+                <TableCell>302.8 ETH</TableCell>
                 <TableCell>
                   <div className="flex gap-2">
                     <Badge variant="destructive">Gambling</Badge>
@@ -68,27 +68,50 @@ const CounterpartyListCard = () => {
                 </TableCell>
                 <TableCell>
                   <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-yellow-500 rounded-full" />
-                    <span>Medium</span>
+                    <div className="w-4 h-4 bg-red-500 rounded-full" />
+                    <span>High</span>
                   </div>
                 </TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>
                   <Link href="#" className="font-medium hover:underline" prefetch={false}>
-                    XYZ Donation
+                  Fund Movement
                   </Link>
                 </TableCell>
-                <TableCell>0.3 BTC</TableCell>
-                <TableCell>0.1 BTC</TableCell>
+                <TableCell>100.3 ETH</TableCell>
+                <TableCell>200.1 ETH</TableCell>
                 <TableCell>
                   <div className="flex gap-2">
-                    <Badge>Donation</Badge>
+                    <Badge>Unknown Addrees</Badge>
                   </div>
                 </TableCell>
                 <TableCell>
-                  This address is associated with a charitable organization, likely used for receiving and processing
-                  donations.
+                  This address is associated with a fund movement, likely used for transferring assets between different
+                  wallets.
+                </TableCell>
+                <TableCell>
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 bg-green-500 rounded-full" />
+                    <span>Low</span>
+                  </div>
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>
+                  <Link href="#" className="font-medium hover:underline" prefetch={false}>
+                  NFT Trading
+                  </Link>
+                </TableCell>
+                <TableCell>20.3 ETH</TableCell>
+                <TableCell>21.1 ETH</TableCell>
+                <TableCell>
+                  <div className="flex gap-2">
+                    <Badge>NFT</Badge>
+                  </div>
+                </TableCell>
+                <TableCell>
+                  The majority of transactions are related to NFT trading, especially on OpenSea and Rarible.
                 </TableCell>
                 <TableCell>
                   <div className="flex items-center gap-2">
